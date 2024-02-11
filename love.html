@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hsen l 7ob</title>
+  
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #heart-container {
+      position: relative;
+    }
+
+    #heart {
+      color: red;
+      font-size: 50px;
+      transition: transform 0.3s;
+    }
+
+    #word {
+      font-size: 18px;
+      color: rgb(0, 0, 0);
+      display: none;
+    }
+
+    #resizeButton {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    .additionalText {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="heart-container">
+    <div id="word"></div>
+    <div id="heart">❤️</div>
+  </div>
+  <button id="resizeButton" onclick="resizeHeart()">Samra</button>
+
+  <b class="additionalText" id="additionalText1"></b>
+ 
+
+  <script>
+    const words = ["Enta Valentiney💖", "Love U ya s2el😍", "Abo Ali😁", "Hsen l zen5🤪", "Sht2tlk w dymn 7a esht2lk😪", "Ya Az3r 😈 ", "Abo Aloshi l 8ala kelo🤗", "A5tboti 🐙", "Bmooot fek❤", "Ra7 7bak dymn", "Ya Besh3😉", "7adk dymn", "kteer B7bk ana", "Rayan kteeeeer bt7bk","kteeeeeeeeer b7bk","b7bbbbbbbbbbk","Ya abo d5an🤪","Nshalla l 3mor kelo sawa","Nshalla b shofk m7al ma btetmanna","w enta dymn jwa jwa jwa albi","kter fi klemet bas 😈😂","B7BK KTEEEER","5lso l klemat bas fek tdal 3am tkbos bedal ykbar😂"];
+    let currentIndex = 0;
+    let firstPress = true;
+    let secondPress = true;
+    let thirdPress = true;
+
+    function resizeHeart() {
+      const heart = document.getElementById('heart');
+      const word = document.getElementById('word');
+      const additionalText1 = document.getElementById('additionalText1');
+    
+      const currentSize = window.getComputedStyle(heart).getPropertyValue('font-size');
+      const newSize = parseInt(currentSize) + 10;
+      heart.style.fontSize = newSize + 'px';
+
+      if (firstPress) {
+        additionalText1.innerText = "Kel ma tkbos 7a ykbar l alb w elk shi men klemeti😂😏";
+        firstPress = false;
+      } else if (secondPress) {
+        
+        additionalText1.innerText = "OK🙄";
+        secondPress = false;
+        
+      } else if (thirdPress) {
+        additionalText1.innerText = "Yalla😁";
+        thirdPress = false;
+      } else if (currentIndex < words.length) {
+        additionalText1.innerText =  ""; // Clear additional text
+        const randomWord = words[currentIndex];
+        word.innerText = randomWord;
+        word.style.display = 'block';
+        currentIndex++;
+      }
+
+     
+    }
+  </script>
+</body>
+
+</html>
+
+
+
